@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>StudyHub Pro</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <button class="lock-btn" onclick="lockApp()">🔒 Lock</button>
+      <div class="logo">StudyHub</div>
+      <nav>
+        <a href="#dashboard">Dashboard</a>
+        <a href="#planner">Planner</a>
+        <a href="#tools">Tools</a>
+      </nav>
+      <button onclick="toggleTheme()">🎨 Theme</button>
+    </header>
+
+    <section class="hero">
+      <h1>Student Productivity Hub</h1>
+      <p>
+        Manage &nbsp; &nbsp;&hearts;study plans, notes, tasks, goals and exam
+        preparation in one place.
+      </p>
+    </section>
+
+    <section class="stats">
+      <div class="stat-box">
+        <h2 id="taskCount">0</h2>
+        <p>Tasks</p>
+      </div>
+      <div class="stat-box">
+        <h2 id="goalCount">0</h2>
+        <p>Goals</p>
+      </div>
+      <div class="stat-box">
+        <h2 id="noteCount">0</h2>
+        <p>Notes</p>
+      </div>
+    </section>
+
+    <h2 class="section-title" id="dashboard">📊 Dashboard</h2>
+
+    <section class="dashboard">
+      <div class="card">
+        <h3>⏰ Focus Timer</h3>
+        <h1 id="timer">00:00</h1>
+        <button onclick="startTimer()">Start</button>
+        <button onclick="resetTimer()">Reset</button>
+        <input
+          type="number"
+          id="customMinutes"
+          placeholder="Set minutes (e.g., 30)"
+        />
+        <button
+          onclick="
+            setCustomTimer(document.getElementById('customMinutes').value)
+          "
+        >
+          Set Custom Time
+        </button>
+      </div>
+
+      <div class="card">
+        <h3>📝 Notes</h3>
+        <textarea
+          id="noteInput"
+          placeholder="Write your note here..."
+        ></textarea>
+        <button onclick="saveNote()">Save</button>
+        <div id="notesList"></div>
+      </div>
+
+      <div class="card">
+        <h3>✅ Tasks</h3>
+        <input type="text" id="taskInput" placeholder="Add a new task..." />
+        <button onclick="addTask()">Add</button>
+        <div id="taskList"></div>
+      </div>
+
+      <div class="card">
+        <h3>🎯 Goals</h3>
+        <input type="text" id="goalInput" placeholder="Add a new goal..." />
+        <button onclick="addGoal()">Add</button>
+        <div id="goalList"></div>
+      </div>
+    </section>
+
+    <h2 class="section-title" id="planner">📅 Study Planner</h2>
+
+    <section class="planner">
+      <div class="card">
+        <h3>📅 Study Planner</h3>
+        <input type="text" id="subject" placeholder="Subject name" />
+        <input type="date" id="studyDate" />
+        <button onclick="addPlan()">Add Plan</button>
+        <div id="planList"></div>
+      </div>
+
+      <div class="card">
+        <h3>📆 Exam Countdown</h3>
+        <input type="date" id="examDate" />
+        <button onclick="calculateCountdown()">Calculate</button>
+        <h2 id="countdownResult"></h2>
+      </div>
+    </section>
+
+    <h2 class="section-title" id="tools">🧮 Calculators</h2>
+
+    <section class="tools">
+      <div class="card">
+        <h3>🎓 CGPA Calculator</h3>
+        <input type="number" id="m1" placeholder="Subject 1" />
+        <input type="number" id="m2" placeholder="Subject 2" />
+        <input type="number" id="m3" placeholder="Subject 3" />
+        <button onclick="calculateCGPA()">Calculate</button>
+        <h2 id="cgpaResult"></h2>
+      </div>
+
+      <div class="card">
+        <h3>🧮 Percentage Calculator</h3>
+        <input type="number" id="obtained" placeholder="Obtained marks" />
+        <input type="number" id="total" placeholder="Total marks" />
+        <button onclick="calculatePercentage()">Calculate</button>
+        <h2 id="percentageResult"></h2>
+      </div>
+    </section>
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-logo">
+          <h2>📚 StudyHub Pro</h2>
+          <p>
+            Boost your productivity, organize your studies, and achieve your
+            academic goals.
+          </p>
+        </div>
+
+        <div class="footer-links">
+          <h3>Quick Links</h3>
+          <a href="#dashboard">Dashboard</a>
+          <a href="#planner">Planner</a>
+          <a href="#tools">Tools</a>
+        </div>
+
+        <div class="footer-contact">
+          <h3>Contact</h3>
+          <p>📧 studyhub@email.com</p>
+          <p>🌐 www.studyhubpro.com</p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        © 2026 StudyHub Pro | Made with ❤️ by Janvi
+      </div>
+    </footer>
+
+    <div id="lockScreen" class="lock-screen">
+      <div class="lock-card">
+        <h2>🔒 StudyHub Locked</h2>
+
+        <p>Enter PIN to continue</p>
+
+        <input type="password" id="unlockPin" placeholder="Enter 4-digit PIN" />
+
+        <button onclick="unlockApp()">Unlock</button>
+      </div>
+    </div>
+    <script src="javascript.js"></script>
+  </body>
+</html>
